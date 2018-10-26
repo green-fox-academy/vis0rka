@@ -6,4 +6,5 @@
 * [first-website-greenfox](https://github.com/vis0rka/first-website-greenfox)
 ## rueppellii really sylabus [->link](https://github.com/green-fox-academy/really-syllabus)
 
-###[my first webpage in greenfox](https://vis0rka.github.io/first-website-greenfox/)
+## here is my exercises
+* [my first webpage in greenfox](https://vis0rka.github.io/first-website-greenfox/)
