@@ -36,10 +36,10 @@ for (let j: number = 0; j < lineCount; j++) {
 
         else if (j > lineCount/2){
                 
-                starRepeat -=2;
+                
                 decrase++;
-                console.log(space.repeat(decrase) + star.repeat(starRepeat));       
-
+                console.log(space.repeat(decrase+1) + star.repeat(starRepeat-4));       
+                starRepeat -=2;
             }
 } 
 
@@ -54,10 +54,10 @@ for (let j: number = 0; j < lineCount; j++) {
 
         else if (j > lineCount/2){
             
-            starRepeat -=2;
+            
             decrase++;
-            console.log(space.repeat(decrase) + star.repeat(starRepeat));       
-
+            console.log(space.repeat(decrase+1) + star.repeat(starRepeat-4));       
+            starRepeat -=2;
         }
     }
 }
