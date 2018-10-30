@@ -1,6 +1,6 @@
 'use strict';
 
-let lineCount: number = 10;
+let lineCount: number = 11;
 let star: string = "*";
 let space: string = " ";
 let decrase: number = lineCount;
@@ -24,7 +24,7 @@ let starRepeat: number = 1;
 
 for (let j: number = 0; j < lineCount; j++) {
 
-    if (lineCount%2 == 0) {
+    if (lineCount %2 == 0) {
 
             if (j < lineCount/2) {
                 console.log(space.repeat(decrase) + star.repeat(starRepeat));
@@ -34,16 +34,16 @@ for (let j: number = 0; j < lineCount; j++) {
             }
 
 
-        else if (j > lineCount/2){
+        else if (j >= lineCount/2){
                 
-                
+            starRepeat -=2;
                 decrase++;
-                console.log(space.repeat(decrase+1) + star.repeat(starRepeat-4));       
-                starRepeat -=2;
+                console.log(space.repeat(decrase) + star.repeat(starRepeat));       
+                
             }
 } 
 
-    else {
+    else 
         if (j < lineCount/2) {
             console.log(space.repeat(decrase) + star.repeat(starRepeat));
             starRepeat += 2;
@@ -55,9 +55,10 @@ for (let j: number = 0; j < lineCount; j++) {
         else if (j > lineCount/2){
             
             
-            decrase++;
-            console.log(space.repeat(decrase+1) + star.repeat(starRepeat-4));       
+            
+            console.log(space.repeat(decrase+2) + star.repeat(starRepeat-4));  
+            decrase++;     
             starRepeat -=2;
         }
-    }
+    
 }
