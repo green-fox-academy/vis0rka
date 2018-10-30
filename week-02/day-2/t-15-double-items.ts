@@ -4,9 +4,8 @@
 
 let drinks: string[] = ['Gin', 'Whiskey', 'Wine', 'Beer'];
 
-drinks = drinks.map(function(e) {
-    return e = e + e;
-}
+drinks.forEach(function(e,i,a) {
+    a[i] = e + e;
+})
 
-)
 console.log(drinks);
