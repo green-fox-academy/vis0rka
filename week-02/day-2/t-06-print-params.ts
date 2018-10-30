@@ -3,14 +3,9 @@
 //    (can have multiple number of arguments)
 
 function printParams(...string) {
-    
-    for (let i = 0; i < string.length; i++ ) {
-
-        
-    }
     console.log(string);
-    
+
 }
 
 
-printParams("kolbasz","teszta","bela","gatya",2,3,4,5,6,67,1331);
+printParams("kolbasz","teszta","bela","gatya",5,123,213,213);
