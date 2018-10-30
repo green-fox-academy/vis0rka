@@ -4,10 +4,14 @@
 
 let numList: number[] = [1,2,3,4,5];
 
-let newList: number[] = numList.map(function(v) {
+numList[2]=numList[2]+1;
+
+/* let newList: number[] = numList.map(function(v) {
     if (v == 3) {
     return v += 1;
 } else 
     return v;
 })
-console.log(newList);
+console.log(newList); */
+
+console.log(numList);
