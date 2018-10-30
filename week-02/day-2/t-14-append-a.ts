@@ -4,9 +4,18 @@
 
 let animals: string[] = ["koal","pand","zebr"]
 
-animals = animals.map(function(e) {
+/* animals = animals.map(function(e) {
     return e = e +"a";
 }
 
 )
 console.log(animals);
+ */
+
+animals.forEach(function(e,i,a) {
+    a[i] = e +"a";
+    
+}
+);
+console.log(animals);
+
