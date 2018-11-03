@@ -5,15 +5,13 @@
 //	   -  do it with creating a new temp array and a loop
 // -  Print the elements of the reversed `numList`
 
-let numList:number [] = [3, 4, 5, 6, 7, 8];
+let numList:number [] = [3, 4, 5, 6, 7, 8,];
 
-let reverseList:number [] = numList.reverse();
-
-console.log(reverseList);
+console.log(numList.reverse());
 
 function revlist(list) {
     let tempList = [];
-    let x = list.length-1;
+    let x = list.length;
     for (let i = 0; i < list.length; i ++) {
         tempList[i] = numList[x]       
         x--;
