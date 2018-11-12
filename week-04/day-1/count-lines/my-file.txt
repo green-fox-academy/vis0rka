@@ -1,0 +1,17 @@
+elso
+masodik
+harmadik
+negyedik
+otodik
+hatodik
+hetedik
+nyolcadik
+kilencedik
+tizedik
+5
+6
+7
+8
+t5
+1
+3
