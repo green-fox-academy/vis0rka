@@ -1,5 +1,5 @@
 export class Sum {
   sum(numbers: number []) {
-    return numbers[0]+numbers[1];
+    return numbers.reduce((a, b) => a + b, 0);
   }
 }
