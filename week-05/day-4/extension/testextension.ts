@@ -3,8 +3,8 @@
 import { test } from 'tape';
 import { add, maxOfThree, median, isVowel, translate } from './extension';
 
-test('add: 2 and 3 is 5', function (t: any): any {
-  t.equal(add(2, 3), 5);
+test('add: 2 and -4 is -2', function (t: any): any {
+  t.equal(add(2, -4), -2);
   t.end();
 });
 
