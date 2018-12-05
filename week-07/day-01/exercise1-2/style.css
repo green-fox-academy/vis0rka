@@ -1,0 +1,23 @@
+.container {
+  display:flex;
+  width: 100%;
+}
+
+.item {
+height: 150px;
+}
+
+.green {
+ background-color:green;
+ flex-grow:1;
+}
+
+.yellow {
+background-color: yellow;
+flex-grow:2;
+}
+
+.purple {
+  flex-grow:1;
+background-color: purple;
+}
