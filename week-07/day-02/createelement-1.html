@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: CreateElement</title>
+  </head>
+  <body>
+    <ul class="asteroids">
+      <li id="b325" class="asteroid">The King</li>
+      <li class="asteroid b326">The Conceited Man</li>
+    </ul>
+    <div class="container"></div>
+
+    <!-- You can work in the html or in a separate js file. Like:
+    <script>
+      Add an item that says 'The Green Fox' to the asteroid list.
+      Add an item that says 'The Lamplighter' to the asteroid list.
+      Add a heading saying 'I can add elements to the DOM!' to the .container.
+      Add an image, any image, to the container.
+    </script>
+    OR
+    <script src="createelement-1.js"></script> -->
+    <script>
+    const asteroidsList = document.querySelector('ul.asteroids');
+    console.log(asteroidsList);
+
+    const greenFox = document.createElement('li');
+    greenFox.textContent = 'The Green Fox';
+      
+    const lamplighter =  document.createElement('li');
+    lamplighter.textContent = 'The Lamplighter';
+
+    const container = document.querySelector('.container');
+
+    console.log(container)
+
+    const heading =  document.createElement('H1');
+    heading.textContent = 'I can add elements to the DOM!';
+
+    const img = document.createElement('img');
+    img.setAttribute('src','https://didiali.files.wordpress.com/2011/06/monkey-donkey_1256750.jpg?w=740')
+
+    console.log(img)
+
+    console.log(heading);
+
+    asteroidsList.appendChild(greenFox);
+    asteroidsList.appendChild(lamplighter);
+
+    container.appendChild(heading);
+    container.appendChild(img);
+
+    </script>
+  </body>
+</html>
