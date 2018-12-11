@@ -35,18 +35,27 @@ sendHttpRequest(apiUrl, 'GET', (response) => {
     let headerText = createNode('li');
     let snippetText = createNode('li');
     let publicationDate = createNode('li');
+    let articleLink = createNode('li');
+    let aLink = createNode('a')
 
     headerText.innerText = e.headline.main;
     snippetText.innerText = e.snippet;
     publicationDate.innerText = e.pub_date;
+    aLink.innerText = 'link to the article';
 
     headerText.classList.add('header1');
     snippetText.classList.add('snippet');
     publicationDate.classList.add('date');
 
+    appendChild(articleLink, aLink);
+    aLink.setAttribute('href', e.web_url);
+
+
     appendChild(articleList, headerText);
     appendChild(articleList, snippetText);
-    appendChild(articleList, publicationDate)
+    appendChild(articleList, publicationDate);
+    appendChild(articleList, articleLink)
+
     appendChild(articlesContainer,articleList);
   }); 
 
