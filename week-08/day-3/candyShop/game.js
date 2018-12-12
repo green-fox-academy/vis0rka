@@ -24,19 +24,27 @@ buttons.addEventListener('click', e => {
     buyLollyPop();
     lollyPopchecker();
   }
-  if (e.target.className == 'candy-machine') {
-      speed += 10;
-      speedAdder();
-  }
 })
 
+buttons.addEventListener('mousedown', e => {
+  if (e.target.className == 'candy-machine') {
+    speed += 10;
+    speedAdder();
+  }
+})
+buttons.addEventListener('mouseup', e => {
+  if (e.target.className == 'candy-machine') {
+    speed -= 10;
+    speedAdder();
+  }
+})
 
 window.onload = function () {
   setInterval(counterAdder, 1000);
   speedAdder();
 }
 
-function speedAdder(){
+function speedAdder() {
   speedDisplay.innerText = speed;
 }
 
@@ -51,15 +59,15 @@ function lollpopAdder() {
 }
 
 function buyLollyPop() {
-    if (counter >= 100) {
+  if (counter >= 100) {
     lollpopAdder();
-    counter -=100;
+    counter -= 100;
     stats.innerText = counter;
   }
 }
 
-function lollyPopchecker () {
-  if(lollyPops.innerText == '🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭') {
+function lollyPopchecker() {
+  if (lollyPops.innerText == '🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭') {
     speed++;
     speedAdder();
     lollyPops.innerText = '🍭';
