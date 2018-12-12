@@ -12,7 +12,7 @@ const candyRains = document.querySelector('.candy-machine');
 /* Event listeners */
 let counter = 0;
 
-let speed = 1;
+let speed = 0;
 
 buttons.addEventListener('click', e => {
   console.log(e);
@@ -44,21 +44,21 @@ window.onload = function () {
   speedAdder();
 }
 
-function speedAdder() {
+const speedAdder = () => {
   speedDisplay.innerText = speed;
 }
 
-function counterAdder() {
+const counterAdder = () => {
   counter += speed;
   stats.innerText = counter;
 }
 
 
-function lollpopAdder() {
+const lollpopAdder = () => {
   lollyPops.innerText += '🍭';
 }
 
-function buyLollyPop() {
+const buyLollyPop = () => {
   if (counter >= 100) {
     lollpopAdder();
     counter -= 100;
@@ -66,10 +66,10 @@ function buyLollyPop() {
   }
 }
 
-function lollyPopchecker() {
+const lollyPopchecker = () => {
   if (lollyPops.innerText == '🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭') {
     speed++;
     speedAdder();
-    lollyPops.innerText = '🍭';
+    lollyPops.innerText = '';
   }
 }
