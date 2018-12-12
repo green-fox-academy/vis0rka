@@ -32,8 +32,9 @@ form.onsubmit = (event) => {
   sendHttpRequest(apiUrl, 'GET', (response) => {
     const data = response.results;
     console.log(data);
-    hitListAdder(data);
 
+    hitListAdder(data);
+    
     filmSearcher(data);
   });
 }
@@ -53,6 +54,7 @@ const hitListAdder = (data) => {
   })
 }
 
+
 const filmSearcher = (data) => {
   data.forEach(e => {
     let chFilms = e.films;
@@ -61,12 +63,9 @@ const filmSearcher = (data) => {
      sendHttpRequest(e, 'GET', (responseFilms) => {
         const dataFilms = responseFilms;
         console.log(dataFilms.title)
-
-        const filmselem = createNode('p');
-
-        filmselem.innerText = dataFilms.title;
-        appendChild(filmselem, filmList);
-        
+        let p = createNode('p')
+        p.innerText = dataFilms.title;
+        appendChild(filmList,p)
       }); 
     })  
   })
