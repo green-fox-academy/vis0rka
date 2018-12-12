@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Delayed Click</title>
+</head>
+<body>
+  <button>Click Me</button>
+  <p></p>
+  <script>
+  const btn = document.querySelector('button');
+  const text = document.querySelector('p');
+
+  const textwriter = () => {
+    text.innerText = 'Biszem Baszom 2mp';
+  }
+
+  btn.addEventListener('click', function () {
+    setInterval(textwriter,2000)
+  })
+  
+  </script>
+</body>
+</html>
