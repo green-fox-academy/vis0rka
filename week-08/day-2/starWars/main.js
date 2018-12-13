@@ -9,6 +9,9 @@ function appendChild(parent, el) {
 const hitList = document.querySelector('.hitList');
 const filmList = document.querySelector('.filmList');
 
+const hitUnList = document.querySelector('.hitList ul');
+const filmListUl = document.querySelector('.filmList ul')
+
 const form = document.querySelector('form');
 let searchValue = '';
 let apiUrl = '';
@@ -32,46 +35,62 @@ form.onsubmit = (event) => {
   sendHttpRequest(apiUrl, 'GET', (response) => {
     const data = response.results;
     console.log(data);
-
     hitListAdder(data);
-    
-    filmSearcher(data);
+    clicker(data);
   });
 }
 
 const hitListAdder = (data) => {
   data.forEach(e => {
-    console.log(e.name);
 
-    const hitUl = createNode('ul');
     const hitListelem = createNode('li');
 
     hitListelem.innerText = e.name;
+    hitListelem.setAttribute('data-name', e.name)
+    hitListelem.classList.add('hitListElem');
 
-    appendChild(hitListelem, hitUl);
-    appendChild(hitList, hitListelem);
+    appendChild(hitUnList, hitListelem);
 
   })
 }
+
+
 
 
 const filmSearcher = (data) => {
   data.forEach(e => {
-    let chFilms = e.films;
-    console.log(chFilms);
-    chFilms.forEach(e => {
-     sendHttpRequest(e, 'GET', (responseFilms) => {
-        const dataFilms = responseFilms;
-        console.log(dataFilms.title)
-        let p = createNode('p')
-        p.innerText = dataFilms.title;
-        appendChild(filmList,p)
-      }); 
-    })  
+    if (e.name == characterName) {
+      let chFilms = e.films;
+      console.log(chFilms);
+      chFilms.forEach(e => {
+        sendHttpRequest(e, 'GET', (responseFilms) => {
+          const dataFilms = responseFilms;
+
+          let filmsLi = createNode('li')
+
+          filmsLi.innerText = dataFilms.title;
+          appendChild(filmListUl, filmsLi)
+        });
+      })
+    }
+  })
+}
+
+let characterName = '';
+
+const clicker = (data) => {
+  hitUnList.addEventListener('click', e => {
+    if (e.target.className == 'hitListElem') {
+      characterName = e.target.dataset.name;
+      clearer();
+      filmSearcher(data);
+    }
   })
 }
 
 
-
-
-
+const clearer = () => {
+  while (filmListUl.firstChild) {
+    filmListUl.removeChild(filmListUl.firstChild);
+  }
+}

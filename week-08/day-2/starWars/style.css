@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: starwars;
+  src: url('c:/greenfox/vis0rka/week-08/day-2/starWars/fonts/Starjedi.ttf');
+}
+
 body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -12,17 +17,33 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin:0 auto;
-
+  height: 100%;
+  background: url('C:/greenfox/vis0rka/week-08/day-2/starWars/images/star-wars-star-background-1920x1080.jpg') no-repeat center;
+  background-size: cover;
+  padding-bottom:25px;
 }
 .header {
   text-align: center;
   width: 70%;
   background-color: #d16969;
+  background: url('file:///C:/greenfox/vis0rka/week-08/day-2/starWars/images/characters.jpg') no-repeat center;
+  background-size: cover;
+  height: 170px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h1 {
+  font-size: 45px;
+  font-family: starwars;
+  color:#eedb00;
+  letter-spacing: 0em;
 }
 .searcher {
   width: 70%;
   padding:25px;
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(211, 211, 211,0.8);
   border-bottom: 1px solid rgb(105, 105, 105)
 }
 
@@ -43,10 +64,56 @@ body {
   height: 50px;
   font-size: 20px;
   margin: 5px;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 70%;
+  display:flex;
+  justify-content:center;
+  flex-direction: wrap;
+  margin-bottom: 50px;
 }
 
 .hitList {
   width: 70%;
-  height:300px;
-  background-color: rgb(211, 211, 211);
+  min-height:300px;
+  background-color: rgb(211, 211, 211,0.8);
+}
+
+
+.hitListElem {
+  display:block;
+  list-style-type: none;
+  font-size:18px;
+  margin:4px 0px 4px 15px;
+  cursor: pointer;
+}
+
+.hitListElem::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hitListElem::before {
+  font-size: 14px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+  padding:3px;
+}
+
+.filmList {
+  width: 70%;
+  min-height:300px;
+  background-color:  rgba(161, 161, 161, 0.8);
+}
+
+.filmList ul li{
+  list-style-type: none;
+  font-size:18px;
+  margin:4px 0px 4px 15px;
 }
