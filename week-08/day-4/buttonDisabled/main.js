@@ -9,7 +9,7 @@ const catFacts = document.querySelector('.catFacts');
 
 favPets.addEventListener('click', (e) =>{
   if (e.target.id == 'dog' || e.target.id == 'cat' && e.target.checked) {
-    cats.disabled = false;
+    signUp.disabled = false;
   } else if (e.target.id == 'viktor' && e.target.checked) {
     signUp.disabled = false;
   }

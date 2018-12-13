@@ -49,6 +49,10 @@ form p {
   
 }
 
+.btn:disabled {
+  text-decoration: line-through;
+}
+
 .cats {
   background:#da4848;
   color:white;
