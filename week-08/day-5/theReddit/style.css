@@ -1,0 +1,151 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+
+header {
+  background: url('file:///C:/greenfox/vis0rka/week-08/day-5/theReddit/images/fond-ecran-space-1.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+  padding:50px;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+}
+
+header img {
+  position: absolute;
+  width:70px;
+}
+
+header h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 50px;
+  letter-spacing: 1em;
+  color:white;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.container {
+  background-color: rgb(128, 128, 128);
+  width: 100%;
+  height: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0% 15%;
+}
+
+.maincontent {
+  width:60%;
+  height: 100%;
+}
+
+ .posts {
+  margin:0 auto;
+  background-color: #fff;
+  width: 95%;
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  display:flex;
+  margin-top:20px;
+} 
+
+.rightside {
+  width:35%;
+  height: 40%;
+  margin-top:20px;
+}
+
+.votesection {
+  width:10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.votesection img {
+  width: 20px;
+}
+
+.votesection p {
+  color: #2e2e2e;
+}
+
+.postcontent {
+  width:90%;
+  height: 100px;
+  padding: 1%;
+}
+
+.postcontent h5 {
+  display: inline-block;
+  font-size:16px;
+  margin-left:5px;
+}
+
+.submit {
+  width: 100%;
+  background-color: rgb(47, 101, 163);
+  padding:20px;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: rgb(34, 71, 114);
+}
+
+.submit h3 {
+  color:#fff; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.about {
+  margin-top:20px;
+}
+
+.aboutTitle {
+  width: 100%;
+  background-color: #fff;
+  padding:10px;
+  border-radius: 5px 5px 0px 0px;
+}
+.aboutTitle h4 {
+  text-transform: uppercase;
+}
+
+.aboutDescr {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(219, 218, 218);
+  padding:10px;
+  display:flex;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.postcontent h4{
+
+}
+
+.postcontent p{
+  color: #2e2e2e;
+}
