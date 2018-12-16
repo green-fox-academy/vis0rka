@@ -41,14 +41,26 @@ header h1 {
   text-shadow: 2px 2px 2px #000000;
 }
 
+header p{
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align:center;
+  font-size: 16px;
+  color:white;
+  margin-top: 20px;
+  text-shadow: 2px 2px 2px #000000;
+}
+
 .container {
   background-color: rgb(128, 128, 128);
   width: 100%;
-  height: 1200px;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0% 15%;
+  padding-bottom: 5%;
 }
 
 .maincontent {
@@ -103,22 +115,50 @@ header h1 {
   margin-left:5px;
 }
 
-.submit {
-  width: 100%;
+.submit a {
+  font-size: 18px;
   background-color: rgb(47, 101, 163);
-  padding:20px;
-  cursor: pointer;
-}
-.submit:hover {
-  background-color: rgb(34, 71, 114);
-}
-
-.submit h3 {
+  display: inline-block;
+  text-transform: none;
   color:#fff; 
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-decoration: none;
+  padding:20px;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
 }
+
+.submit a:hover {
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  background-color: rgb(34, 71, 114);
+}
+
+.submit button {
+  font-size: 18px;
+  border:none;
+  background-color: rgb(47, 101, 163);
+  display: inline-block;
+  text-transform: none;
+  color:#fff; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding:20px;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.submit button:hover {
+  font-size: 18px;
+  background-color: rgb(34, 71, 114);
+  letter-spacing: 0.2em;
+}
+
+
 .about {
   margin-top:20px;
 }
@@ -142,10 +182,38 @@ header h1 {
   border-radius: 0px 0px 5px 5px;
 }
 
-.postcontent h4{
 
-}
 
 .postcontent p{
   color: #2e2e2e;
+}
+
+form {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  padding:1%;
+  margin-top:30px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  border-radius:10px;
+}
+form label {
+  display: block;
+  width:200px;
+  font-size: 20px;
+}
+
+form  div:nth-child(2){
+  margin-top:15px;
+}
+
+form input {
+  width:400px;
+  padding:15px;
+  background-color: rgb(185, 185, 185);
+  font-size: 18px;
+}
+
+form .submit {
+  margin-top:50px;
+
 }

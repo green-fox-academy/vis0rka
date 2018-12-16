@@ -1,4 +1,4 @@
-
+console.log('hello')
 /* Catch the elements */ 
 
 const maincontent = document.querySelector('.maincontent');
