@@ -19,7 +19,7 @@ const sendHttpRequest = (url, method, callback) => {
 }
 
 sendHttpRequest(apiUrl, 'GET', (response) => {
-  data = response.posts
+  let data = response.posts
   console.log(data);
   renderDiv(data);
 })
