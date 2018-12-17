@@ -1,0 +1,23 @@
+{
+  "name": "vis0rka",
+  "version": "1.0.0",
+  "description": "* [git-lesson-repository](https://github.com/vis0rka/git-lesson-repository)\r * [hello-world - my first repo](https://github.com/vis0rka/hello-world)\r * [patchwork repo](https://github.com/vis0rka/patchwork)\r * [first-website-greenfox](https://github.com/vis0rka/first-website-greenfox)\r ## rueppellii really sylabus [->link](https://github.com/green-fox-academy/really-syllabus)",
+  "main": "index.js",
+  "dependencies": {
+    "@types/node": "^10.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/vis0rka.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/vis0rka/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/vis0rka#readme"
+}
