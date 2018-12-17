@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>toDo list</title>
+<style>
+li {
+  font-size:25px;
+}
+</style>
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% for(let i=0; i < todos.length; i++) { %> 
+    <li><%= todos[i]%></li>
+    <% } %>
+  </ul>
+</body>
+
+</html>
