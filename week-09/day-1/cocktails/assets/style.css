@@ -1,0 +1,87 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.wrapper {
+  margin:0 auto;
+  width:600px;
+}
+
+h1 {
+  font-size:50px;
+}
+
+.nav {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.nav ul{
+  display: flex;
+}
+
+.nav li {
+  list-style: none;
+  font-size:26px;
+  margin-left:20px;
+  color:purple;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+}
+
+.names li {
+  font-size:20px;
+  list-style: none;
+  font-weight: 900;
+}
+
+
+.prices li {
+  font-size:20px;
+  list-style: none;
+  font-weight: 900;
+}
+
+.names div:nth-child(even) {
+  background-color: #c5c5c5;
+}
+
+.prices div:nth-child(odd) {
+  background-color: #c5c5c5;
+}
+
+.names div {
+  padding:20px;
+  height: 70px;
+}
+
+.prices div {
+  padding:20px;
+  height: 70px;
+}
+.prices {
+  border-left: 3px solid white;
+}
+
+.prices h2 {
+  text-align: center;
+  background-color: #000000;
+  color: white;
+  padding:5px;
+}
+
+.names h2 {
+  text-align: center;
+  background-color: #000000;
+  color: white;
+  padding:5px;
+
+}

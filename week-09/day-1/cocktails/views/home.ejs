@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/style.css"/>
+    <title>Coctails</title>
+  </head>
+  <body>
+    <div class="wrapper">
+    <h1>Coctails</h1>
+    <div class='nav'>
+      <ul>
+        <li><a href="/">All</a></li>
+        <% for (types of alcoholList) { %> 
+          <li><a href="/?alcohol=<%=types%>"><%= types%></a></li>
+          <% } %>  
+      </ul>
+    </div>
+    <div class="container">
+      <div class="names"> 
+          <ul> 
+              <h2>Name</h2>
+             <% for(drinks of cocktails ) { %> 
+               <div>
+             <li><%= drinks.name%></li>
+             <p><%= drinks.contains%></p>
+               </div>
+             <% } %> 
+           </ul>
+         </div>
+   
+         <div class="prices">
+             <h2>Price</h2>
+             <ul>
+                 <% for(drinks of cocktails) { %> 
+                   <div>
+                 <li><%= drinks.price%> Ft</li>
+                   </div>
+                 <% } %>
+             </ul>
+           </div>
+    </div>
+  </div>
+  </body>
+</html>
