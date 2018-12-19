@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const bp = require('body-parser')
+const bp = require('body-parser');
 
 app.use(bp());
 
@@ -14,57 +14,41 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
 app.get('/doubling', (req, res) => {
   const { input } = req.query;
-    if (input) {
+  if (input) {
     const doubling = {
       "received": input,
       "result": input * 2
     }
     res.json(doubling)
-  } else res.json({ "error": "Please provide an input!" })
+  } else res.json({ "error": "Please provide an input!" });
 })
 
 app.get('/greeter', (req, res) => {
-  const { name,  title } = req.query;
-    if(!name) {
-      res.json({ "error": "Please provide a name!" })
-    } else if (!title) {
-      res.json({ "error": "Please provide a title!" })
-    } else  {
-    res.json({ "welcome_message": `Oh, hi there ${name}, my dear ${title}!` })
+  const { name, title } = req.query;
+  if (!name) {
+    res.json({ "error": "Please provide a name!" });
+  } else if (!title) {
+    res.json({ "error": "Please provide a title!" });
+  } else {
+    res.json({ "welcome_message": `Oh, hi there ${name}, my dear ${title}!` });
   }
 })
 
 app.get('/appenda/:appendable', (req, res) => {
   const { appendable } = req.params;
   if (appendable) {
-    res.json({"appended": `${appendable}a`})
-  } else res.status(404).send()
+    res.json({ "appended": `${appendable}a` });
+  } else res.status(404).send();
 })
 
-app.post('/dountil/:action', (req,res) => {
+app.post('/dountil/:action', (req, res) => {
   const { action } = req.params;
-  if ( action == 'factor') {
-    res.json({ 'result': factorialize(req.body.until) })
+  if (action == 'factor') {
+    res.json({ 'result': factorialize(req.body.until) });
   } else if (action == 'sum') {
-    res.json({ 'result': countUp(req.body.until) })
+    res.json({ 'result': countUp(req.body.until) });
   }
 })
-
-
-app.post('/array/', (req,res) => {
-  const what  = req.body.what;
-  if (what && req.body.numbers) {
-    if ( what == 'sum') {
-      res.json({'result': sum(req.body.numbers)})
-    } else if ( what == 'multiply') {
-      res.json({'result': multiply(req.body.numbers)})
-    } else if ( what == 'double') {
-      res.json({'result': double(req.body.numbers)})
-    }
-  } else res.json({ "error": "Please provide what to do with the numbers!" })
-})
-
-
 
 
 const countUp = (n) => {
@@ -77,26 +61,14 @@ const countUp = (n) => {
 
 
 const factorialize = (num) => {
-  if (num < 0) 
-        return -1;
-    
-  else if (num == 0) 
-      return 1;
-    
-    else {
-        return (num * factorialize(num - 1));
-    }
+  if (num < 0)
+    return -1;
+  else if (num == 0)
+    return 1;
+  else {
+    return (num * factorialize(num - 1));
+  }
 }
 
-const multiply = (array) => {
-  return array.reduce( (a,b) => a * b );
-}
 
-const sum = (array) => {
-  return array.reduce( (a,b) => a + b );
-}
-
-const double = (array) => {
-  return array.map(x => x*2)
-}
 
