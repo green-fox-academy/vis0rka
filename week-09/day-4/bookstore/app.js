@@ -1,16 +1,12 @@
+require('dotenv').config()
 const mysql = require('mysql');
 
 const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'bookstore'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 })
-
-conn.connect((err) => {
-  if (err) throw err;
-  console.log('Connected!');
-});
 
 
 /* Setup the server */
@@ -25,21 +21,85 @@ app.use('/assets', express.static('assets'));
 
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
+
+const findAll = `SELECT book_mast.book_name, author.aut_name, publisher.pub_name, category.cate_descrip, book_mast.book_price FROM book_mast
+ JOIN author ON book_mast.aut_id = author.aut_id 
+ JOIN category ON book_mast.cate_id = category.cate_id
+ JOIN publisher ON book_mast.pub_id = publisher.pub_id
+ WHERE category.cate_descrip LIKE ? AND publisher.pub_name LIKE ?
+ ;`
+
+
 app.get('/author/', (req, res) => {
-
-  const { category } = req.query
-  
-  console.log(category)
-  conn.query(`select * from booklist where category = '${category}';`, (err, rows) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send()
-      return
+  const { category, publisher } = req.query
+  let searchValue = [`%`, `%`];
+  if (!category && !publisher) {
+      searchValue = [`%`, `%`];
+    } else if (category == 'All' && !publisher) {
+      searchValue = [`%`, `%${publisher}`];
+    }  else if (!category && publisher == 'All') {
+      searchValue = [`%${category}`, `%`];
+    } else if (category == 'All' && publisher == 'All') { 
+      searchValue = [`%`, `%`];
+    } else if (category !== 'All' && publisher !== 'All') {
+      searchValue = [`%`, `%`];
     }
-    res.json({ rows })
+    conn.query(findAll, searchValue, (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send()
+        return
+      }
+      res.json({ rows })
+    })
   })
+  /*   if (category == 'All' && publisher) {
+      const searchValue = [`%`, `%${publisher}`];
+      conn.query(findAll, searchValue, (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send()
+          return
+        }
+        res.json({ rows })
+      })
+    }
+  
+    if (category  && publisher == 'All') {
+      const searchValue = [`%${category}`, `%`];
+      conn.query(findAll, searchValue, (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send()
+          return
+        }
+        res.json({ rows })
+      })
+    }
+  
+    if (category && publisher) {
+      const searchValue = [`%${category}`, `%${publisher}`];
+      conn.query(findAll, searchValue, (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send()
+          return
+        }
+        res.json({ rows })
+      })
+    }
+    if (category == 'All' && publisher == 'All') {
+      const searchValue = [`%`, `%`];
+      conn.query(findAll, searchValue, (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send()
+          return
+        }
+        res.json({ rows })
+      })
+    }  */
 
-})
 
 
 

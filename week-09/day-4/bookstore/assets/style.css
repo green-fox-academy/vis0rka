@@ -4,8 +4,25 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+  width:60%;
+  height: 100%;
+  margin:0 auto;
+}
+
+.container {
+  margin:0 auto;
+  display:flex;
+  justify-content: center;
+}
+
 h1 {
   font-size:48px;
+  text-align: center;
 }
 
 table td {
@@ -15,9 +32,50 @@ table td {
 }
 
 table tr {
+  padding:5px;
+  display:block;
   font-size:18px;
   margin:5px;
+  border:1px solid black;
 }
 table tr:nth-child(odd) {
   background-color: rgb(214, 214, 214);
+}
+
+.searchField {
+margin: 0 auto;
+margin-top:20px;
+display:flex;
+width:80%;
+justify-content: space-around;
+}
+
+form label {
+  font-size:20px;
+}
+
+form input {
+  padding:10px;
+  font-size:18px;
+}
+
+button {
+  padding:10px;
+  font-size:16px;
+}
+
+.category h3 {
+  font-size:20px;
+}
+.category select {
+  font-size:16px;
+  padding:5px;
+}
+
+.publisher h3 {
+  font-size:20px;
+}
+.publisher select {
+  font-size:16px;
+  padding:5px;
 }
