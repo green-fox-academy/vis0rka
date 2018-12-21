@@ -1,0 +1,303 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+
+header {
+  background: url('./images/fond-ecran-space-1.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+  padding:50px;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+}
+
+header img {
+  position: absolute;
+  width:70px;
+}
+
+header h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 50px;
+  letter-spacing: 1em;
+  color:white;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+header p{
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align:center;
+  font-size: 16px;
+  color:white;
+  margin-top: 20px;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.container {
+  background-color: rgb(128, 128, 128);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0% 15%;
+  padding-bottom: 5%;
+}
+
+.maincontent {
+  width:60%;
+  height: 100%;
+}
+
+ .posts {
+  margin:0 auto;
+  background-color: #fff;
+  width: 95%;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  display:flex;
+  margin-top:20px;
+} 
+
+.rightside {
+  width:35%;
+  height: 40%;
+  margin-top:20px;
+}
+
+.votesection {
+  width:10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.votesection .arrowUp {
+  width:25px;
+  height: 25px;
+  background-image: url('./images/upvote.png');
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.votesection .arrowUp:hover {
+  width:25px;
+  height: 25px;
+  background-image: url('./images/upvoted.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.votesection .arrowDown {
+  background-image: url('./images/downvote.png');
+  width:25px;
+  height: 25px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.votesection .arrowDown:hover {
+  background-image: url('./images/downvoted.png');
+  width:25px;
+  height: 25px;
+  background-position: center;
+  background-size: cover;
+}
+
+.votesection img {
+  width: 25px;
+}
+
+.votesection p {
+  color: #2e2e2e;
+}
+
+.postcontent {
+  width:90%;
+  height: 100px;
+  padding: 1%;
+}
+
+.postcontent h4 {
+  font-size:20px;
+}
+
+.postcontent h5 {
+  display: inline-block;
+  font-size:16px;
+  margin-left:5px;
+}
+ 
+.pLink {
+  color:rgb(133, 7, 7);
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.pDelete {
+  margin-top:10px;
+}
+
+.submit a {
+  font-size: 18px;
+  background-color: rgb(47, 101, 163);
+  display: inline-block;
+  text-transform: none;
+  color:#fff; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding:20px;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.submit a:hover {
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  background-color: rgb(34, 71, 114);
+}
+
+.submit button {
+  font-size: 18px;
+  border:none;
+  background-color: rgb(47, 101, 163);
+  display: inline-block;
+  text-transform: none;
+  color:#fff; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding:20px;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.submit button:hover {
+  font-size: 18px;
+  background-color: rgb(34, 71, 114);
+  letter-spacing: 0.2em;
+}
+
+
+.about {
+  margin-top:20px;
+}
+
+.aboutTitle {
+  width: 100%;
+  background-color: #fff;
+  padding:10px;
+  border-radius: 5px 5px 0px 0px;
+}
+.aboutTitle h4 {
+  text-transform: uppercase;
+}
+
+.aboutDescr {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(219, 218, 218);
+  padding:10px;
+  display:flex;
+  border-radius: 0px 0px 5px 5px;
+}
+
+
+
+
+
+form {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  padding:1%;
+  margin-top:30px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  border-radius:10px;
+}
+form label {
+  display: block;
+  width:200px;
+  font-size: 20px;
+}
+
+form  div:nth-child(2){
+  margin-top:15px;
+}
+
+form input {
+  width:400px;
+  padding:15px;
+  background-color: rgb(185, 185, 185);
+  font-size: 18px;
+}
+
+form .submit {
+  margin-top:50px;
+
+}
+
+.returnDiv {
+  background-color: rgb(255, 255, 255);
+  width:200px;
+  height: 50%;
+  padding:2%;
+  margin-top:30px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  border-radius:10px;
+}
+
+.backButton {
+  border:none;
+  background-color: rgb(47, 101, 163);
+  display: inline-block;
+  text-transform: none;
+  color:#fff; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding:5px 20px;
+  font-size:20px;
+}
+
+.containerPost {
+  background-color: rgb(128, 128, 128);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0% 15%;
+  padding-bottom: 5%;
+}
