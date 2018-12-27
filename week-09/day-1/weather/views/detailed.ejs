@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css">
+  <title>Weather forecast</title>
+</head>
+<body>
+  <h2 style="text-align:center;"><%= cityWeather[0].city %></h2>
+  <div class="weatherContainer">
+    <% cityWeather[0].weather.forEach(e => {  %>
+      <div class="weatherBox">
+          <img src='../static/images/<%= e.icon %>.png'>
+          <p class="temperature"><%= e.temp %>°C</p>
+          <p class="message"><%= e.message %></p>         
+        </div> 
+        <% }) %>
+      </div>
+
+</body>
+</html>
