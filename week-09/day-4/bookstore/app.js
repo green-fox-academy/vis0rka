@@ -31,19 +31,21 @@ const findAll = `SELECT book_mast.book_name, author.aut_name, publisher.pub_name
 
 
 app.get('/author/', (req, res) => {
-  const { category, publisher } = req.query
+  const { category, publisher, priceLtn } = req.query
   let searchValue = [`%`, `%`];
-  if (!category && !publisher) {
+
+  if (category && publisher) {
+    if (category == 'All' && publisher == 'All') {
       searchValue = [`%`, `%`];
-    } else if (category == 'All' && !publisher) {
+    } else if (category == 'All' && publisher) {
       searchValue = [`%`, `%${publisher}`];
-    }  else if (!category && publisher == 'All') {
+    } else if (category && publisher == 'All')
       searchValue = [`%${category}`, `%`];
-    } else if (category == 'All' && publisher == 'All') { 
-      searchValue = [`%`, `%`];
-    } else if (category !== 'All' && publisher !== 'All') {
-      searchValue = [`%`, `%`];
+      else {
+      searchValue = [`%${category}`, `%${publisher}`];
     }
+  }
+
     conn.query(findAll, searchValue, (err, rows) => {
       if (err) {
         console.log(err);
@@ -52,7 +54,7 @@ app.get('/author/', (req, res) => {
       }
       res.json({ rows })
     })
-  })
+  });
   /*   if (category == 'All' && publisher) {
       const searchValue = [`%`, `%${publisher}`];
       conn.query(findAll, searchValue, (err, rows) => {

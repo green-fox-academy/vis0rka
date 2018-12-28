@@ -9,7 +9,7 @@ body {
 }
 
 .wrapper {
-  width:60%;
+  width:70%;
   height: 100%;
   margin:0 auto;
 }
@@ -18,26 +18,34 @@ body {
   margin:0 auto;
   display:flex;
   justify-content: center;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 
 h1 {
-  font-size:48px;
+  font-size:30px;
   text-align: center;
 }
 
-table td {
-
-  font-size:25px;
-
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-table tr {
+table, td, th {
+  border: 1px solid rgb(133, 133, 133);
+}
+
+table th {
   padding:5px;
-  display:block;
   font-size:18px;
-  margin:5px;
-  border:1px solid black;
 }
+table td {
+  padding:5px;
+  font-size:14px;
+}
+
+
 table tr:nth-child(odd) {
   background-color: rgb(214, 214, 214);
 }
@@ -46,36 +54,48 @@ table tr:nth-child(odd) {
 margin: 0 auto;
 margin-top:20px;
 display:flex;
-width:80%;
+width:100%;
+align-items: center;
 justify-content: space-around;
 }
 
 form label {
-  font-size:20px;
-}
-
-form input {
-  padding:10px;
   font-size:18px;
 }
 
+form input {
+  font-size:14px;
+}
+
 button {
-  padding:10px;
   font-size:16px;
 }
 
 .category h3 {
-  font-size:20px;
+  font-size:18px;
 }
 .category select {
-  font-size:16px;
-  padding:5px;
+  font-size:14px;
+  padding:2px;
 }
 
 .publisher h3 {
-  font-size:20px;
+  font-size:18px;
 }
 .publisher select {
-  font-size:16px;
-  padding:5px;
+  font-size:14px;
+  padding:2px;
+}
+
+#submit {
+  background-color: tomato;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: rgb(172, 64, 45);
 }

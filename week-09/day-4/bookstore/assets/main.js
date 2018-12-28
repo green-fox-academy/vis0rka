@@ -1,4 +1,3 @@
-console.log('hello')
 
 const sendHttpRequest = (url, method, callback) => {
   const xmlRequest = new XMLHttpRequest();
@@ -9,11 +8,11 @@ const sendHttpRequest = (url, method, callback) => {
     }
   }
   xmlRequest.send();
-}
+};
+
 const baseURL = 'http://localhost:3000/author';
 
 const container = document.querySelector('.container');
-
 
 
 sendHttpRequest(baseURL, 'GET', (response) => {
@@ -22,64 +21,66 @@ sendHttpRequest(baseURL, 'GET', (response) => {
   render(data);
   categoryAdder(data);
   publisherAdder(data);
-})
+});
 
 
 /*  RENDER FUNCTION */
 
 const render = (data) => {
   container.innerHTML = '';
-  
-  
+    
 
   const table = document.createElement('table');
   container.appendChild(table)
 
-  const tdTitle = document.createElement('td');
-  tdTitle.innerText = 'Book title';
+  const thTitle = document.createElement('th');
+  thTitle.innerText = 'Book title';
 
-  const tdAuthor = document.createElement('td');
-  tdAuthor.innerText = 'Author name';
+  const thAuthor = document.createElement('th');
+  thAuthor.innerText = 'Author name';
 
-  const tdCategory = document.createElement('td');
-  tdCategory.innerText = 'Category';
+  const thCategory = document.createElement('th');
+  thCategory.innerText = 'Category';
 
-  const tdPublisher = document.createElement('td');
-  tdPublisher.innerText = 'Publisher name';
+  const thPublisher = document.createElement('th');
+  thPublisher.innerText = 'Publisher name';
 
-  const tdPrice = document.createElement('td');
-  tdPrice.innerText = 'Price';
+  const thPrice = document.createElement('th');
+  thPrice.innerText = 'Price';
+
+  const trHead = document.createElement('tr');
+
+  trHead.appendChild(thTitle);
+  trHead.appendChild(thAuthor);
+  trHead.appendChild(thCategory);
+  trHead.appendChild(thPublisher);
+  trHead.appendChild(thPrice);
+
+  table.appendChild(trHead);
 
   data.forEach(element => {
-    const trTitle = document.createElement('tr');
-    trTitle.innerText = element.book_name;
 
-    tdTitle.appendChild(trTitle);
-    table.appendChild(tdTitle);
+    const trNorm = document.createElement('tr');
+    
+    const tdTitle = document.createElement('td');
+    const tdAuthor = document.createElement('td');
+    const tdCategory = document.createElement('td')
+    const tdPublisher = document.createElement('td');
+    const tdPrice = document.createElement('td');
 
-    const trAuthor = document.createElement('tr');
-    trAuthor.innerText = element.aut_name;
+    tdTitle.innerText = element.book_name;
+    tdAuthor.innerText = element.aut_name;
+    tdCategory.innerText = element.cate_descrip;
+    tdPublisher.innerText = element.pub_name;
+    tdPrice.innerText = element.book_price;
 
-    tdAuthor.appendChild(trAuthor);
-    table.appendChild(tdAuthor);
+    trNorm.appendChild(tdTitle);
+    trNorm.appendChild(tdAuthor);
+    trNorm.appendChild(tdCategory);
+    trNorm.appendChild(tdPublisher);
+    trNorm.appendChild(tdPrice);    
 
-    const trCategory = document.createElement('tr');
-    trCategory.innerText = element.cate_descrip;
-
-    tdCategory.appendChild(trCategory);
-    table.appendChild(tdCategory);
-
-    const trPublisher = document.createElement('tr');
-    trPublisher.innerText = element.pub_name;
-
-    tdPublisher.appendChild(trPublisher);
-    table.appendChild(tdPublisher);
-
-    const trPrice = document.createElement('tr');
-    trPrice.innerText = element.book_price;
-
-    tdPrice.appendChild(trPrice);
-    table.appendChild(tdPrice);
+    table.appendChild(trNorm);
   });
 }
 
@@ -160,16 +161,17 @@ publisherInput.addEventListener('change', event => {
   }
 }) */
 
-const submit = document.querySelector('.priceLtn')
+const submit = document.querySelector('.priceGtn');
 
 submit.onsubmit = (event) => {
   event.preventDefault();
-  const catVal =categoryInput.value;
+  const catVal = categoryInput.value;
   const pubVal = publisherInput.value;
   const priceLtnVal = document.querySelector('#priceLtn').value;
-  console.log(catVal, pubVal)
+  const priceGtnVal = document.querySelector('#priceGtn').value;
+  console.log(catVal, pubVal, priceLtnVal, priceGtnVal)
 
-  URL = `http://localhost:3000/author?category=${catVal}&publisher=${pubVal}`
+  URL = `http://localhost:3000/author?category=${catVal}&publisher=${pubVal}&priceLtn=${priceLtnVal}`
   sendHttpRequest(URL, 'GET', (response) => {
     const data = response.rows;
     render(data);
