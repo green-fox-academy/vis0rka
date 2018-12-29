@@ -10,7 +10,7 @@ const sendHttpRequest = (url, method, callback) => {
   xmlRequest.send();
 };
 
-const baseURL = 'http://localhost:3000/author';
+const baseURL = 'http://localhost:3000/alldata';
 
 const container = document.querySelector('.container');
 
@@ -121,9 +121,9 @@ const publisherAdder = (data) => {
   })
 }
 
-/* Event listener */
+/* Event listener for category and publisher */
 
-/* categoryInput.addEventListener('change', event => {
+ categoryInput.addEventListener('change', event => {
   if (event.target.value == 'All') {
     sendHttpRequest(baseURL, 'GET', (response) => {
       const data = response.rows;
@@ -132,7 +132,7 @@ const publisherAdder = (data) => {
       categoryAdder(data);
     });
   } else {
-    URL = `http://localhost:3000/author?category=${event.target.value}`
+    URL = `http://localhost:3000/filter?category=${event.target.value}`
     sendHttpRequest(URL, 'GET', (response) => {
       const data = response.rows;
       render(data);
@@ -142,16 +142,18 @@ const publisherAdder = (data) => {
   }
 })
 
-publisherInput.addEventListener('change', event => {
+ publisherInput.addEventListener('change', event => {
   if (event.target.value == 'All') {
     sendHttpRequest(baseURL, 'GET', (response) => {
       const data = response.rows;
       render(data);
       categoryInput.innerHTML = '';
       categoryAdder(data);
+      publisherInput.innerHTML = '';
+      publisherAdder(data);
     });
   } else {
-    URL = `http://localhost:3000/author?publisher=${event.target.value}`
+    URL = `http://localhost:3000/filter?publisher=${event.target.value}`
     sendHttpRequest(URL, 'GET', (response) => {
       const data = response.rows;
       render(data);
@@ -159,7 +161,9 @@ publisherInput.addEventListener('change', event => {
       categoryAdder(data);
     });
   }
-}) */
+}) 
+
+/* Add multiple function for Search fields */
 
 const submit = document.querySelector('.priceGtn');
 
@@ -171,7 +175,7 @@ submit.onsubmit = (event) => {
   const priceGtnVal = document.querySelector('#priceGtn').value;
   console.log(catVal, pubVal, priceLtnVal, priceGtnVal)
 
-  URL = `http://localhost:3000/author?category=${catVal}&publisher=${pubVal}&priceLtn=${priceLtnVal}`
+  URL = `http://localhost:3000/filter?category=${catVal}&publisher=${pubVal}&priceLtn=${priceLtnVal}&priceGtn=${priceGtnVal}`
   sendHttpRequest(URL, 'GET', (response) => {
     const data = response.rows;
     render(data);

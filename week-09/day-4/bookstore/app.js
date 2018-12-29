@@ -22,31 +22,63 @@ app.use('/assets', express.static('assets'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
 
-const findAll = `SELECT book_mast.book_name, author.aut_name, publisher.pub_name, category.cate_descrip, book_mast.book_price FROM book_mast
- JOIN author ON book_mast.aut_id = author.aut_id 
- JOIN category ON book_mast.cate_id = category.cate_id
- JOIN publisher ON book_mast.pub_id = publisher.pub_id
- WHERE category.cate_descrip LIKE ? AND publisher.pub_name LIKE ?
- ;`
+
+app.get('/alldata', (req,res) => {
+  const findAll = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price 
+  FROM publisher, book_mast, category, author 
+  WHERE book_mast.aut_id=author.aut_id 
+  AND book_mast.pub_id=publisher.pub_id 
+  AND book_mast.cate_id=category.cate_id
+  ;`
+ 
+  conn.query(findAll, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send()
+      return
+    }
+    res.json({ rows })
+  })
+});
 
 
-app.get('/author/', (req, res) => {
-  const { category, publisher, priceLtn } = req.query
-  let searchValue = [`%`, `%`];
 
-  if (category && publisher) {
-    if (category == 'All' && publisher == 'All') {
-      searchValue = [`%`, `%`];
-    } else if (category == 'All' && publisher) {
-      searchValue = [`%`, `%${publisher}`];
-    } else if (category && publisher == 'All')
-      searchValue = [`%${category}`, `%`];
-      else {
-      searchValue = [`%${category}`, `%${publisher}`];
+
+app.get('/filter/', (req, res) => {
+  const { category, publisher, priceLtn, priceGtn } = req.query
+
+  let filterSql = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price 
+  FROM publisher, book_mast, category, author 
+  WHERE book_mast.aut_id = author.aut_id 
+  AND book_mast.pub_id = publisher.pub_id 
+  AND book_mast.cate_id = category.cate_id
+  `
+
+  if (category) {
+    if (category != 'All') {
+      filterSql += ` AND cate_descrip = '${category}'`;
+    }
+  }
+  if (publisher) {
+    if (publisher != 'All') {
+      filterSql += ` AND publisher.pub_name = '${publisher}'`;
+    }
+  }
+  if (priceLtn) {
+    if (priceLtn != '' || priceLtn != undefined ) {
+      filterSql += ` AND book_mast.book_price <= ${priceLtn}`;
     }
   }
 
-    conn.query(findAll, searchValue, (err, rows) => {
+  if (priceGtn) {
+    if (priceGtn != '' || priceGtn != undefined ) {
+      filterSql += ` AND book_mast.book_price >= ${priceGtn}`;
+    }
+  }
+
+  filterSql += `;`;
+
+    conn.query(filterSql, (err, rows) => {
       if (err) {
         console.log(err);
         res.status(500).send()
@@ -55,53 +87,7 @@ app.get('/author/', (req, res) => {
       res.json({ rows })
     })
   });
-  /*   if (category == 'All' && publisher) {
-      const searchValue = [`%`, `%${publisher}`];
-      conn.query(findAll, searchValue, (err, rows) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send()
-          return
-        }
-        res.json({ rows })
-      })
-    }
   
-    if (category  && publisher == 'All') {
-      const searchValue = [`%${category}`, `%`];
-      conn.query(findAll, searchValue, (err, rows) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send()
-          return
-        }
-        res.json({ rows })
-      })
-    }
-  
-    if (category && publisher) {
-      const searchValue = [`%${category}`, `%${publisher}`];
-      conn.query(findAll, searchValue, (err, rows) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send()
-          return
-        }
-        res.json({ rows })
-      })
-    }
-    if (category == 'All' && publisher == 'All') {
-      const searchValue = [`%`, `%`];
-      conn.query(findAll, searchValue, (err, rows) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send()
-          return
-        }
-        res.json({ rows })
-      })
-    }  */
-
 
 
 
