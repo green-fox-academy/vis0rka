@@ -34,9 +34,9 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!')
 })
 
-const findAll = `SELECT * FROM posts`
 
-app.get('/posts', (req, res) => {
+app.get('/posts/', (req, res) => {
+  const findAll = `SELECT * FROM posts`;
   conn.query(findAll, (err, rows) => {
     if (err) {
       console.log(err);
@@ -45,17 +45,17 @@ app.get('/posts', (req, res) => {
     }
     res.json({ rows })
   })
-})
+});
 
 
-app.post('/posts', (req, res) => {
+app.post('/posts/', (req, res) => {
   const { title, url } = req.body;
   if (title === undefined || title === '' || url === undefined || url === '') {
     res.json({
       message: 'All fields are required'
     });
   } else {
-    conn.query('INSERT INTO posts (title, url) VALUES (? ,?);', [title, url], (err, data) => {
+    conn.query('INSERT INTO posts (title, url) VALUES (? ,?);', [title, url], (err, rows) => {
       if (err) {
         console.log(err.message);
         res.status(500).json({
@@ -70,4 +70,29 @@ app.post('/posts', (req, res) => {
       });
     });
   }
+});
+
+app.delete('/posts/', (req, res) => {
+  const { id } = req.body;
+  const findAll = `SELECT * FROM posts`;
+  conn.query(findAll, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'internal server error' })
+      return
+    }
+    if (rows.find(element => element.id == id)) {
+      conn.query(`DELETE FROM posts WHERE id = ${id};`, (err, data) => {
+        if (err) {
+          console.log(err);
+          res.status(500).json({ error: 'internal server error' })
+          return
+        }
+        res.json({ message: 'Successfully deleted' });
+      });
+
+    } else {
+      res.json({ message: 'Wrong ID' });
+    }
+  });
 });

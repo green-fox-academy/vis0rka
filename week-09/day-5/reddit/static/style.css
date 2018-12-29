@@ -164,6 +164,12 @@ header p{
 
 .pDelete {
   margin-top:10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pDelete:hover {
+  color:rgb(211, 0, 0);
 }
 
 .submit a {

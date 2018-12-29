@@ -102,10 +102,24 @@ const timer = (elementTime) => {
 }
 
 const checkUser = (user) => {
-  if (user !== null || user == undefined) {
+  if (user !== null || user !== undefined) {
     return user
   } else return 'anonymus'
 }
 
 
 
+maincontent.addEventListener('click', (event) =>{
+  if(event.target.className = 'pDelete') {
+    console.log(event.target.id)
+    const deleteXHR = new XMLHttpRequest();
+    deleteXHR.open('DELETE', '/posts');
+    deleteXHR.setRequestHeader('Content-Type', 'application/json');
+    deleteXHR.send(JSON.stringify({
+    id: event.target.id,
+    }))
+    deleteXHR.onload = () =>{
+      console.log(JSON.parse(deleteXHR.responseText));
+    }
+  }
+});
