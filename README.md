@@ -9,3 +9,5 @@
 ## here is my exercises
 * [my first webpage in greenfox](https://vis0rka.github.io/first-website-greenfox/)
 * [todo App](https://github.com/vis0rka/todo-app)
+* [Wanderer game Typescript](https://github.com/vis0rka/wanderer-typescript)
+* [Image slider with Javascript](https://github.com/green-fox-academy/vis0rka/tree/master/week-07/day-03t)
