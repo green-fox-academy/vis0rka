@@ -51,7 +51,7 @@ app.post('/api/links', (req, res) => {
           res.status(500).json({
             error: 'Internal server error'
           });
-          return
+          return;
         }
         conn.query(`SELECT * FROM urlStore WHERE alias = '${alias}';`, (err, info) => {
           res.json({
@@ -72,25 +72,25 @@ const randomCode = () => {
 };
 
 app.get('/a', (req, res) => {
-  const { alias } = req.query
+  const { alias } = req.query;
 
   conn.query(`SELECT * FROM urlStore;`, (err, rows) => {
     if (err) {
       console.log(err.message);
       res.status(500).json({ message: 'Internal server error' });
-      return
+      return;
     }
     if (rows.find(element => element.alias == alias)) {
       conn.query(`UPDATE urlStore SET hitCount = hitCount + 1 WHERE alias = '${alias}';`, (err, data) => {
         if (err) {
           console.log(err.message);
           res.status(500).json({ message: 'Internal server error' });
-          return
+          return;
         }
         res.json({ message: `The alias:${alias} hitcount increment by 1` })
       })
     } else {
-      res.status(404).send()
+      res.status(404).send();
     }
   })
 

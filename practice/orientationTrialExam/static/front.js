@@ -9,8 +9,6 @@ const renderForm = () => {
   const submitBtn = document.createElement('button');
   const infoText = document.createElement('p');
 
-  infoText.innerText = 'Information Text';
-
   urlLabel.innerText = 'URL';
   urlLabel.setAttribute('for', 'url');
 
