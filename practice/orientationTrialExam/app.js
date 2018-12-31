@@ -55,7 +55,7 @@ app.post('/api/links', (req, res) => {
         }
         conn.query(`SELECT * FROM urlStore WHERE alias = '${alias}';`, (err, info) => {
            res.json({ 
-            id: info[0].id,
+            id: info[0].id, // <- itt ezeket a [0] hívásokat valahogy ki lehet kerülni?
             url: info[0].url,
             alias: info[0].alias,
             hitCount: info[0].hitCount,
@@ -71,3 +71,27 @@ const randomCode = () => {
   return Math.floor(1000 + Math.random() * 9000);
 };
 
+app.get('/a', (req,res) => {
+  const { alias } = req.query
+
+  conn.query(`SELECT * FROM urlStore;`, (err,rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({message: 'Internal server error'});
+      return
+    }
+    if (rows.find(element => element.alias = alias)) {
+      conn.query(`UPDATE urlStore SET hitCount = hitCount + 1 WHERE alias = '${alias}';`, (err, data) => {
+        if (err) {
+          console.log(err.message);
+          res.status(500).json({message: 'Internal server error'});
+          return
+        }
+        res.json({message: `The alias:${alias} hitcount increment by 1`})
+      })
+    } else {
+      res.status(404).send()
+    }
+  })
+
+}) 

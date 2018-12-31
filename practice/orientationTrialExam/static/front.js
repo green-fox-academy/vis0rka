@@ -77,7 +77,8 @@ form.onsubmit = (event) => {
       data = JSON.parse(postXHR.responseText);
       urlValue.value = '';
       aliasValue.value = '';
-      infoText.innerHTML = `Your URL is aliased to <strong>${data.alias}</strong> and your secret code is <strong>${data.secretCode}.</strong>`;
+      infoText.style.color = 'black';
+      infoText.innerHTML = `Your URL is aliased to <strong>${data.alias}</strong> and your secret code is <strong>${data.secretCode}.</strong>;`
       console.log(data)
     } else {
       data = JSON.parse(postXHR.responseText);
