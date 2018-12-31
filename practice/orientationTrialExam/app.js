@@ -95,3 +95,16 @@ app.get('/a', (req,res) => {
   })
 
 }) 
+
+
+
+app.get('/api/links', (req,res) => {
+  conn.query(`SELECT id, url, alias, hitCount FROM urlStore`, (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).res.json({message: 'internal server error'});
+      return
+    }
+    res.json({ rows })
+  })
+})
