@@ -1,11 +1,11 @@
 console.log('hello')
-/* Catch the elements */ 
+/* Catch the elements */
 
 const maincontent = document.querySelector('.maincontent');
 
 const apiUrl = 'http://localhost:3000/posts';
 
-/* Set the AJAX */ 
+/* Set the AJAX */
 
 const sendHttpRequest = (url, method, callback) => {
   const xmlRequest = new XMLHttpRequest();
@@ -24,14 +24,14 @@ sendHttpRequest(apiUrl, 'GET', (response) => {
   renderDiv(data);
 })
 
-/* Functions */ 
+/* Functions */
 
 const renderDiv = (data) => {
   data.forEach(element => {
     const div = document.createElement('div');
 
     div.classList.add('posts');
-    maincontent.appendChild(div); 
+    maincontent.appendChild(div);
 
     const voteSection = document.createElement('div');
     voteSection.classList.add('votesection');
@@ -41,7 +41,7 @@ const renderDiv = (data) => {
     const postSection = document.createElement('div');
     postSection.classList.add('postcontent');
     div.append(postSection);
-    postContRend(element,postSection);
+    postContRend(element, postSection);
   });
 }
 
@@ -73,9 +73,9 @@ const postContRend = (element, target) => {
 
   const p = document.createElement('p');
   const userText = document.createElement('h5');
-  
+
   userText.innerText = checkUser(element.user);
-  
+
   p.innerText = `submitted ${timer(element.timestamp)} hour ago by`;
 
   const pDelete = document.createElement('p');
@@ -86,7 +86,7 @@ const postContRend = (element, target) => {
   p.appendChild(userText);
 
   div.appendChild(pLink);
-  
+
   target.appendChild(title);
   target.appendChild(div)
   target.appendChild(p);
@@ -96,8 +96,8 @@ const postContRend = (element, target) => {
 
 const timer = (elementTime) => {
   const date = Date.now()
-  const ago = date-elementTime;
-  const dayscounter = Math.floor(ago/3600000);
+  const ago = date - elementTime;
+  const dayscounter = Math.floor(ago / 3600000);
   return dayscounter;
 }
 
@@ -109,17 +109,22 @@ const checkUser = (user) => {
 
 
 
-maincontent.addEventListener('click', (event) =>{
-  if(event.target.className = 'pDelete') {
+maincontent.addEventListener('click', (event) => {
+  console.log(event)
+  if (event.target.className == 'pDelete') {
     console.log(event.target.id)
     const deleteXHR = new XMLHttpRequest();
     deleteXHR.open('DELETE', '/posts');
     deleteXHR.setRequestHeader('Content-Type', 'application/json');
     deleteXHR.send(JSON.stringify({
-    id: event.target.id,
+      id: event.target.id,
     }))
-    deleteXHR.onload = () =>{
+    deleteXHR.onload = () => {
       console.log(JSON.parse(deleteXHR.responseText));
     }
+  }
+  if (event.target.className == 'arrowUp') {
+    let elID = event;
+    console.log(elID);
   }
 });
