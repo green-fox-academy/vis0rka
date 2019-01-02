@@ -3,7 +3,7 @@ const path = require('path');
 const mysql = require('mysql');
 const app = express();
 const port = 3000;
- // vizsgán kell-e .env-et használni?       
+ // vizsgán kell-e .env-et       
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
