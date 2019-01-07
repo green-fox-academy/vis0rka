@@ -1,0 +1,155 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(73, 73, 73);
+}
+
+button {
+  background:none;
+  border:none;
+
+}
+
+button {
+  display: flex;
+}
+
+
+button {
+  font-size: 16px;
+  color:rgba(247, 247, 247, 0.788);
+  background-color:rgb(41, 41, 41);
+}
+
+.red {
+  color:red;
+}
+.green {
+  color:green;
+}
+
+.white {
+  color:rgba(247, 247, 247, 0.788);
+}
+
+button i {
+  padding:8px;
+}
+
+
+button[data-action='Delete'] p {
+  background-color: red;
+  color:white;
+  padding:8px 20px; 
+  position: relative;
+  display: none;
+}
+
+button[data-action='Delete'] p:after {
+  right: 87%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color:transparent;
+  border-left-color: rgb(41, 41, 41);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+button[data-action='Delete']:hover {
+  color:red;
+}
+
+button[data-action='Delete']:hover p{
+ display: initial;
+
+}
+
+
+
+button[data-action='Sure'] p {
+  background-color: green;
+  color:white;
+  padding:8px 20px; 
+  position: relative;
+  display: none;
+}
+
+button[data-action='Sure'] p:after {
+  right: 87%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color:transparent;
+  border-left-color: rgb(41, 41, 41);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+button[data-action='Sure']:hover {
+  color:green;
+}
+
+button[data-action='Sure']:hover p{
+ display: initial;
+}
+
+
+
+/* button::before {
+  position: absolute;
+  top:0;
+  right: 100%;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f2ed";
+  width: 40px;
+  height: 100%;
+  
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}  */ 
+
+.hoverDel:after { 
+
+} 
+
+.hoverSure {
+  background-color: rgb(31, 133, 0);
+  color:white;
+  padding:8px 20px; 
+  position: relative;
+  display: none;
+}
+
+.hoverSure:after { 
+  right: 85%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color:transparent;
+  border-left-color: rgb(41, 41, 41);
+  border-width: 6px;
+  margin-top: -6px;
+} 
