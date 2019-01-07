@@ -112,7 +112,7 @@ app.post('/posts/:id/upvote', (req, res) => {
           res.status(500).json({ error: 'internal server error' })
           return
         }
-        res.json({ message: `Successfully upvoted the score where id=${id}` });
+        res.status(200).json({ message: `Successfully upvoted the score where id=${id}` });
       });
 
     } else {

@@ -30,6 +30,7 @@ const renderDiv = (data) => {
   data.forEach(element => {
     const div = document.createElement('div');
 
+
     div.classList.add('posts');
     maincontent.appendChild(div);
 
@@ -48,12 +49,14 @@ const renderDiv = (data) => {
 const voteSecRend = (element, target) => {
   const arrowUp = document.createElement('div');
   arrowUp.classList.add('arrowUp');
+  arrowUp.setAttribute('data-id', element.id);
 
   const p = document.createElement('p');
   p.innerText = element.score;
 
   const arrowDown = document.createElement('div');
   arrowDown.classList.add('arrowDown');
+  arrowDown.setAttribute('data-id', element.id);
 
   target.appendChild(arrowUp);
   target.appendChild(p);
@@ -110,7 +113,7 @@ const checkUser = (user) => {
 
 
 maincontent.addEventListener('click', (event) => {
-  console.log(event)
+
   if (event.target.className == 'pDelete') {
     console.log(event.target.id)
     const deleteXHR = new XMLHttpRequest();
@@ -124,7 +127,30 @@ maincontent.addEventListener('click', (event) => {
     }
   }
   if (event.target.className == 'arrowUp') {
-    let elID = event;
-    console.log(elID);
+    voteUp(event.target);
   }
+  if (event.target.className == 'arrowDown') {
+    voteDown(event.target);
+  }
+
 });
+
+const voteUp = (upVoteEvent) => {
+  const upVoteXhr = new XMLHttpRequest();
+  upVoteXhr.open('POST', `posts/${upVoteEvent.dataset.id}/upvote`);
+  upVoteXhr.send();
+  upVoteXhr.onload = () => {
+    console.log(JSON.parse(upVoteXhr.responseText));
+  }
+
+}
+
+const voteDown = (voteDownEvent) => {
+  const vodeDownXhr = new XMLHttpRequest();
+  vodeDownXhr.open('POST', `posts/${voteDownEvent.dataset.id}/downvote`);
+  vodeDownXhr.send();
+  vodeDownXhr.onload = () => {
+    console.log(JSON.parse(vodeDownXhr.responseText));
+  }
+
+}
