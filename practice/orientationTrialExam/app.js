@@ -129,7 +129,7 @@ app.delete('/api/links', (req, res) => {
             res.status(500).json({ message: 'internal server error' });
             return
           }
-          res.status(204).json({ message: `Deleted the url where secretcode: ${secretCode} and id: ${id}` }); // <- ez a json message nem megy át 
+          res.status(200).json({ message: `Deleted the url where secretcode: ${secretCode} and id: ${id}` }); // <- ez a json message nem megy át 
         })
       } else {
         res.status(404).json({ message: `The secretCode: ${secretCode} WRONG or doesnt exist` });
