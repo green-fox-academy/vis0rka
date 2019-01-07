@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Fancy Table</title>
+</head>
+<body>
+  <div class="wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>January</td>
+          <td class="number" data-currency="$ ">50000</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td class="number"  data-currency="$ ">10000</td>
+        </tr>
+        <tr>
+          <td>March</td>
+          <td class="number"  data-currency="$ ">85000</td>
+        </tr>
+        <tr>
+          <td>April</td>
+          <td class="number"  data-currency="$ ">56000</td>
+        </tr>
+        <tr>
+          <td>May</td>
+          <td class="number"  data-currency="$ ">98000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<script>
+const numbers = document.querySelectorAll('.number');
+
+numbers.forEach(e => {
+ 
+  e.innerText = e.innerText.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+})
+</script>
+</body>
+</html>
