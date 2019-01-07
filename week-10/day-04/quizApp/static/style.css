@@ -86,3 +86,39 @@
   font-size:26px;
   text-align: center;
 }
+
+.closeBtn {
+  color:red;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  font-weight:bold; 
+}
+
+.manQuest {
+  margin-top:20px;
+  width: 60vw;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.manQuest p {
+display:inline-block;
+}
+
+.questText {
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 50px;
+}
+
+.manQuest ul li {
+  list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid grey;
+}
