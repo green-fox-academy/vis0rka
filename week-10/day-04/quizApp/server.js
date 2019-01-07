@@ -40,7 +40,9 @@ app.get('/game', (req,res) => {
     });
     randomNumb = Math.floor(Math.random() * questionsId.length+1);
       // GET A RANDOM A QUESTIONS
-    const sqlRandom = `SELECT questions.id, questions.question, answers.id, answers.question_id, answers.is_correct, answers.answer FROM questions, answers WHERE questions.id = answers.question_id AND questions.id = ${randomNumb};`;
+    const sqlRandom = `SELECT questions.id, questions.question, answers.id, answers.question_id, answers.is_correct, answers.answer 
+                        FROM questions, answers WHERE questions.id = answers.question_id
+                        AND questions.id = ${randomNumb};`;
     conn.query(sqlRandom, (err, data) => {
       if (err) {
         console.log(err.message);
@@ -79,3 +81,19 @@ app.get('/allquestions', (req, res) => {
     res.json(rows);
   });
 });
+
+app.delete('/questions/:id', (req,res) => {
+  const { id } = req.params;
+  const sql = `DELETE questions, answers FROM questions, answers WHERE questions.id = answers.question_id AND questions.id = ${id};`
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    res.json({message: `Successfully deleted the question where id:${id}`});
+  });
+  
+})
