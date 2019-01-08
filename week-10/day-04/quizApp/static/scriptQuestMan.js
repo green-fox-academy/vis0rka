@@ -2,23 +2,7 @@
 
 const questManCont = document.querySelector('.manQuest');
 
-const baseUrl = 'http://localhost:8080/allquestions';
-
-const sendHttpRequest = (method, url, callback) => {
-  const xmlRequest = new XMLHttpRequest();
-  xmlRequest.open(method, url);
-  xmlRequest.onload = () => {
-    if (xmlRequest.status === 200) {
-      callback(JSON.parse(xmlRequest.responseText));
-    }
-  }
-  xmlRequest.send();
-};
-
-sendHttpRequest('GET', baseUrl, (response) => {
-  console.log(response);
-  renderQuestions(response);
-})
+// create the render method 
 
 const renderQuestions = (data) => {
   questManCont.innerHTML = '';
@@ -41,11 +25,32 @@ const renderQuestions = (data) => {
 
   questManCont.appendChild(ul);
 }
+// get the data from the server 
+
+const baseUrl = 'http://localhost:8080/allquestions';
+
+const sendHttpRequest = (method, url, callback) => {
+  const xmlRequest = new XMLHttpRequest();
+  xmlRequest.open(method, url);
+  xmlRequest.onload = () => {
+    if (xmlRequest.status === 200) {
+      callback(JSON.parse(xmlRequest.responseText));
+    }
+  }
+  xmlRequest.send();
+};
+window.onload = () => {
+  sendHttpRequest('GET', baseUrl, (response) => {
+    renderQuestions(response);
+  });
+};
+
+// add event listener to delete buttons
 
 questManCont.addEventListener('click', (event) => {
-  if(event.target.classList == 'closeBtn') {
+  if (event.target.classList == 'closeBtn') {
     sendHttpRequest('DELETE', `http://localhost:8080/questions/${event.target.dataset.id}`, (response) => {
-    console.log(response)
+      console.log(response)
     });
   }
 })

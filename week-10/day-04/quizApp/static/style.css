@@ -122,3 +122,8 @@ display:inline-block;
     padding: 15px 0px;
     border-bottom: 1px solid grey;
 }
+
+.manageQ {
+  text-decoration: none;
+  margin-top:20px;
+}
