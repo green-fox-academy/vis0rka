@@ -49,15 +49,14 @@ app.get('/rocket/fill', (req,res) => {
       caliber50 += amount;
       shipCheck();
     }   
-    res.json({
+    res.status(200).json({
       received: caliber,
       amount: amount,
       shipstatus: shipstatus,
-      shipammo: fullAmmo,
       ready: ready
     })
   } else {
-    res.json({error: 'wrong query'})
+    res.status(210).json({error: 'wrong query'})
   }
  });
 
