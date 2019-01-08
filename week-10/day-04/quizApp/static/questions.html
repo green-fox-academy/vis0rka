@@ -12,6 +12,26 @@
     <h1>Manage questions</h1>
     <div class="manQuest">
     </div>
+    <div class="addQuest">
+      <h1>Create a new question</h1>
+      <form>
+        <input type="text" id="question" placeholder="Type your question here" required>
+        <p>Answers</p>
+        <div>
+          <span>#1</span><input type="text" id="answer1" placeholder="Type your answer here" required><input name="radanswers" value="1" type="radio">
+        </div>
+        <div>
+          <span>#2</span><input type="text" id="answer2" placeholder="Type your answer here" required><input name="radanswers" value="2" type="radio">
+        </div>
+        <div>
+          <span>#3</span><input type="text" id="answer3" placeholder="Type your answer here" required><input name="radanswers" value="3" type="radio">
+        </div>
+        <div>
+          <span>#4</span><input type="text" id="answer4" placeholder="Type your answer here" required><input name="radanswers" value="4" type="radio">
+        </div>     
+        <input type="submit">   
+      </form>
+    </div>
     <a href="http://localhost:8080/" class="manageQ">Get back to Game</a>
   </div>
   <script src="scriptQuestMan.js"></script>

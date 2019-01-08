@@ -53,4 +53,33 @@ questManCont.addEventListener('click', (event) => {
       console.log(response)
     });
   }
-})
+});
+
+
+// catch the form 
+
+const form = document.querySelector('.addQuest form');
+
+console.log(form.elements);
+
+form.onsubmit = () => {
+  event.preventDefault();
+  const { question, answer1, answer2, answer3, answer4, radanswers } = form.elements; 
+  console.log(question.value, answer1,answer2, answer3, answer4, radanswers.value);
+   const postReq = new XMLHttpRequest();
+  postReq.open('POST', `/questions`);
+  postReq.setRequestHeader('Content-type', 'application/json');
+  postReq.send(JSON.stringify({
+    question: question.value,
+    answer1: answer1.value,
+    answer2: answer2.value,
+    answer3: answer3.value,
+    answer4: answer4.value,
+    wichtrue: radanswers.value
+  })); 
+  postReq.onload = () => {
+    if (postReq.status === 200) {
+      console.log((JSON.parse(postReq.responseText)));
+    }
+  }
+}

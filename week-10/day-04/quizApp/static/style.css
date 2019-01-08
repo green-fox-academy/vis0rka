@@ -12,6 +12,8 @@
   min-height: 100vh;
   background-color: #efefef;
   flex-direction: column;
+  padding-top:50px;
+  padding-bottom:50px;
 }
 
 .container {
@@ -126,4 +128,76 @@ display:inline-block;
 .manageQ {
   text-decoration: none;
   margin-top:20px;
+}
+
+.addQuest {
+  margin-top:20px;
+  width: 60vw;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+.addQuest h1 {
+  text-align: center;
+}
+
+.addQuest form {
+  width: 80%;
+  margin:0 auto;
+  margin-top:20px;
+}
+
+.addQuest form input {
+  width:100%;
+  padding:10px;
+}
+
+.addQuest form div {
+  box-sizing: border-box;
+  margin-top:10px;
+  border-bottom: 1px solid grey;
+  margin-bottom:5px;
+  padding:5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addQuest form div:last-child {
+  border-bottom: none;
+}
+
+.addQuest form div input[type=text] {
+  width:80%;
+  padding:10px;
+}
+
+.addQuest form input[type=radio] {
+  width:20px;
+}
+
+.addQuest form p {
+  margin-top: 10px;
+}
+
+.addQuest form input[type=submit] {
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: 600;
+  margin-top:20px;
+  cursor: pointer;
+}
+.addQuest form input[type=submit]:hover {
+  background-color: rgb(61, 94, 155);
 }
