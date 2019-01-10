@@ -7,11 +7,12 @@ const inputs = document.querySelectorAll('form input[type="checkbox"]');
 
 form.onsubmit = () => {
   event.preventDefault();
+  let array = [];
   inputs.forEach(e => {
     if(e.checked) {
-      console.log( {
-        [e.name]: e.value, 
-      })
+       array.push({[e.name]:e.value})
     }
   })
+  console.log(array)
 }
+
