@@ -18,7 +18,7 @@ body {
   flex-wrap: wrap;
   margin:0 auto;
   height: 100%;
-  background: url('C:/greenfox/vis0rka/week-08/day-2/starWars/images/star-wars-star-background-1920x1080.jpg') no-repeat center;
+  background: url('./images/star-wars-star-background-1920x1080.jpg') no-repeat center;
   background-size: cover;
   padding-bottom:25px;
 }
@@ -26,9 +26,9 @@ body {
   text-align: center;
   width: 70%;
   background-color: #d16969;
-  background: url('file:///C:/greenfox/vis0rka/week-08/day-2/starWars/images/characters.jpg') no-repeat center;
+  background: url('./images/characters.jpg') no-repeat center;
   background-size: cover;
-  height: 170px;
+  height: 200px;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -55,8 +55,10 @@ body {
 
 .searcher form input {
   width: 300px;
-    height: 50px;
-    margin-left: 5px;
+  height: 50px;
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 18px;
 }
 
 .searcher form button {
@@ -65,6 +67,14 @@ body {
   font-size: 20px;
   margin: 5px;
   cursor: pointer;
+  background: none;
+  border: none;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+}
+
+.searcher form button:hover {
+  background-color:rgb(72, 109, 177);
 }
 
 .wrapper {
@@ -73,6 +83,11 @@ body {
   justify-content:center;
   flex-direction: wrap;
   margin-bottom: 50px;
+}
+
+.wrapper h3 {
+  text-align: center;
+  margin-top:5px;
 }
 
 .hitList {

@@ -41,14 +41,12 @@ form.onsubmit = (event) => {
 }
 
 const hitListAdder = (data) => {
+  hitUnList.innerHTML = '';
   data.forEach(e => {
-
     const hitListelem = createNode('li');
-
     hitListelem.innerText = e.name;
     hitListelem.setAttribute('data-name', e.name)
     hitListelem.classList.add('hitListElem');
-
     appendChild(hitUnList, hitListelem);
 
   })
@@ -61,13 +59,10 @@ const filmSearcher = (data) => {
   data.forEach(e => {
     if (e.name == characterName) {
       let chFilms = e.films;
-      console.log(chFilms);
       chFilms.forEach(e => {
         sendHttpRequest(e, 'GET', (responseFilms) => {
           const dataFilms = responseFilms;
-
           let filmsLi = createNode('li')
-
           filmsLi.innerText = dataFilms.title;
           appendChild(filmListUl, filmsLi)
         });
