@@ -4,6 +4,7 @@ const answer = document.querySelector('.answer')
 
 form.onsubmit = () => {
   event.preventDefault();
+  console.log(form.elements);
   const { url, alias } = form.elements;
   const postReq = new XMLHttpRequest();
   postReq.open('POST', `/api/links`);
@@ -25,3 +26,7 @@ form.onsubmit = () => {
     }
   }
 };
+
+const { bike, car, tape, orangutan } = form.elements;
+
+
