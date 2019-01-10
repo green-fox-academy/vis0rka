@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./static/style.css">
   <title>Manage Questions</title>
 </head>
 <body>
@@ -16,24 +16,24 @@
       <h1>Create a new question</h1>
       <form>
         <input type="text" id="question" placeholder="Type your question here" required>
-        <p>Answers</p>
+        <div><p class="bold-style">Answers</p><p class="bold-style">is Correct?</p></div>
         <div>
-          <span>#1</span><input type="text" id="answer1" placeholder="Type your answer here" required><input name="radanswers" value="1" type="radio">
+          <span class="bold-style">#1</span><input type="text" id="answer1" placeholder="Type your answer here" required><input name="radanswers" value="1" type="radio">
         </div>
         <div>
-          <span>#2</span><input type="text" id="answer2" placeholder="Type your answer here" required><input name="radanswers" value="2" type="radio">
+          <span class="bold-style">#2</span><input type="text" id="answer2" placeholder="Type your answer here" required><input name="radanswers" value="2" type="radio">
         </div>
         <div>
-          <span>#3</span><input type="text" id="answer3" placeholder="Type your answer here" required><input name="radanswers" value="3" type="radio">
+          <span class="bold-style">#3</span><input type="text" id="answer3" placeholder="Type your answer here" required><input name="radanswers" value="3" type="radio">
         </div>
         <div>
-          <span>#4</span><input type="text" id="answer4" placeholder="Type your answer here" required><input name="radanswers" value="4" type="radio">
+          <span class="bold-style">#4</span><input type="text" id="answer4" placeholder="Type your answer here" required><input name="radanswers" value="4" type="radio">
         </div>     
-        <input type="submit">   
+        <input type="submit" value="Submit">   
       </form>
     </div>
     <a href="http://localhost:8080/" class="manageQ">Get back to Game</a>
   </div>
-  <script src="scriptQuestMan.js"></script>
+  <script src="./static/scriptQuestMan.js"></script>
 </body>
 </html>

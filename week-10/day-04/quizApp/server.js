@@ -23,6 +23,8 @@ app.listen(port, () => { console.log(`App is listening on Port: ${port}`) })
 
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname, './static/index.html')) });
 
+app.get('/questions', (req, res) => { res.sendFile(path.join(__dirname, './static/questions.html')) });
+
 app.get('/game', (req,res) => {
 
   // CREATE A QUERY FROM RANDOM NUMBER ID
